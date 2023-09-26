@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 referencias=pi bla, blabla 
 pipipi
-=======
-referencias=bla bla, blabla
->>>>>>> bibliografia
