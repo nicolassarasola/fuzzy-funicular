@@ -1,0 +1,40 @@
+<?php require 'templates/header.phtml'; ?>
+
+<div class="container-fluid w-100 d-flex justify-content-center">
+    <div>
+        <h1>Editar Canciones</h1>
+        <table class="my-4 table">
+            <thead>
+                <tr>
+                    <th class="col">Título</th>
+                    <th class="col">Álbum</th>
+                    <th class="col">Duración</th>
+                    <?php if ($isAdmin): ?>
+                        <th class="col">BORRAR</th>
+                    <?php endif; ?>
+                </tr>
+            </thead>
+
+            <?php foreach ($canciones as $cancion): ?>
+                <form class="form-alta" action="editarCancion/<?= $cancion->id_cancion ?>" method="POST">
+                    <tr style="text-align:center">
+                        <td><input class="form-control" type="text" name="titulo" value="<?= $cancion->titulo ?>"></td>
+                        <td>
+                            <select class="form-control" name="album">
+                                <?php foreach ($albumes as $album): ?>
+                                    <option value="<?= $album->id_album ?>" <?= $cancion->id_album == $album->id_album ? 'selected' : '' ?>>
+                                        <?= $album->nombre_album ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <td><input class="form-control" type="text" name="duracion" value="<?= $cancion->Duración ?>"></td>
+                        <td><button type="submit" class="btn btn-primary">Editar</button></td>
+                    </tr>
+                </form>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</div>
+<a href="" class="volver">VOLVER</a>
+<?php require 'templates/footer.phtml'; ?>

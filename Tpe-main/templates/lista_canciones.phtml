@@ -1,0 +1,21 @@
+<?php require 'templates/header.phtml' ?>
+
+<?php require 'templates/form_alta_cancion.phtml' ?>
+
+<ul class="list-group">
+<?php foreach ($canciones as $cancion): ?>
+    <li class="list-group-item item-cancion <?php if ($cancion->canciones): ?> canciones <?php endif ?>">
+        <div>
+             <b>Titulo: <?= $cancion->titulo ?></b> | Duración: <?= $cancion->Duración ?> | Álbum al que pertenece: <?= $cancion->tituloAlbum ?>
+        </div>
+        <div class="actions">
+            <a href="eliminar/<?= $cancion->ID ?>" type="button" class="btn btn-danger">Borrar</a>
+            <a href="editarCanciones" <?= $cancion->ID ?> type="button" class="btn btn-warning">Editar</a>    
+        </div>
+    </li>
+<?php endforeach ?>
+</ul>
+
+<p class="mt-3"><small>Mostrando <?= $count ?> canciones</small></p>
+
+<?php require 'templates/footer.phtml' ?>

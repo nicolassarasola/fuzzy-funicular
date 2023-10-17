@@ -1,0 +1,25 @@
+<?php require 'templates/header.phtml' ?>
+
+<?php require 'templates/form_alta_album.phtml' ?>
+
+<ul class="list-group">
+<?php foreach($Albumes as $album): ?>
+    <li class="list-group-item item-album">
+        <div>
+            <b><?= $album->tituloAlbum ?></b> | Año de Lanzamiento: <?= $album->anioLanzamiento ?> | Artista: <?= $album->nombreArtista ?> 
+        </div>
+        <div class="actions">
+            <a href="eliminarAlbum/<?= $album->ID ?>" type="button" class="btn btn-danger">Borrar</a>
+            <a href="editarAlbum/<?= $album->ID?>" type="button" class="btn btn-warning">Editar</a>
+        </div>
+    </li>
+<?php endforeach ?>
+
+</ul>
+
+
+
+<p class="mt-3"><small>Mostrando <?=$count?> albumes</small></p>
+
+<?php require 'templates/footer.phtml' ?>
+
